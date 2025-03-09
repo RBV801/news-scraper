@@ -139,4 +139,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Disclaimer
 
-This tool is provided for educational and research purposes only. Always respect website terms of service and robots.txt files. The authors are not responsible for any misuse of this tool. 
+This tool is provided for educational and research purposes only. Always respect website terms of service and robots.txt files. The authors are not responsible for any misuse of this tool.
+
+![Python Tests](https://github.com/RBV801/news-scraper/actions/workflows/python-test.yml/badge.svg) 

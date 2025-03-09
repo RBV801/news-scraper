@@ -31,4 +31,4 @@ setup(
         "requests>=2.25.0",
         "python-dateutil>=2.8.0",
     ],
-) 
+)

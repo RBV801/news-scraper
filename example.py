@@ -7,26 +7,41 @@ import argparse
 import json
 import sys
 
+
 def main():
-    parser = argparse.ArgumentParser(description='News Scraper Example')
-    parser.add_argument('--source', choices=['nytimes', 'bbc'], default='nytimes',
-                        help='News source to scrape (default: nytimes)')
-    parser.add_argument('--limit', type=int, default=3,
-                        help='Maximum number of articles to fetch (default: 3)')
-    parser.add_argument('--url', type=str,
-                        help='Specific article URL to scrape (optional)')
-    parser.add_argument('--output', type=str, choices=['text', 'json'], default='text',
-                        help='Output format (default: text)')
+    parser = argparse.ArgumentParser(description="News Scraper Example")
+    parser.add_argument(
+        "--source",
+        choices=["nytimes", "bbc"],
+        default="nytimes",
+        help="News source to scrape (default: nytimes)",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=3,
+        help="Maximum number of articles to fetch (default: 3)",
+    )
+    parser.add_argument(
+        "--url", type=str, help="Specific article URL to scrape (optional)"
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        choices=["text", "json"],
+        default="text",
+        help="Output format (default: text)",
+    )
     args = parser.parse_args()
-    
+
     # Create the appropriate scraper
-    if args.source == 'nytimes':
+    if args.source == "nytimes":
         scraper = NYTimesScraper()
         print(f"Using NYTimes scraper")
-    elif args.source == 'bbc':
+    elif args.source == "bbc":
         scraper = BBCScraper()
         print(f"Using BBC scraper")
-    
+
     # Scrape a specific URL if provided
     if args.url:
         print(f"Fetching article from URL: {args.url}")
@@ -46,9 +61,10 @@ def main():
             print("No articles found.")
             sys.exit(1)
 
+
 def output_articles(articles, format_type):
     """Output articles in the specified format."""
-    if format_type == 'json':
+    if format_type == "json":
         # Convert articles to JSON
         articles_dict = [article.to_dict() for article in articles]
         print(json.dumps(articles_dict, indent=2))
@@ -67,5 +83,6 @@ def output_articles(articles, format_type):
             print(f"Content preview: {article.content[:150]}...")
             print("-" * 50)
 
+
 if __name__ == "__main__":
-    main() 
+    main()

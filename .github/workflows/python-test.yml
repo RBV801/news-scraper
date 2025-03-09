@@ -34,4 +34,4 @@ jobs:
     - name: Check code formatting
       run: |
         pip install black
-        black --check . 
+        black --check .
